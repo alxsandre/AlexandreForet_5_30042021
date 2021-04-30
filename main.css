@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.thumnbail {
+    display: block;
+    margin: 0;
+    width: 200px;
+    height: 100%;
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+}
