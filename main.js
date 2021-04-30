@@ -1,3 +1,4 @@
+ /*
  let createThumbnail = (productInfos) => {
         //create thumnbail
         const main = document.querySelector('main');
@@ -37,3 +38,95 @@
         }
     })
     .catch(err => console.log('fatal error!!'));
+
+*/
+
+
+
+// Test home made framework
+
+/*
+// Vanilla JS
+const element = {
+    type: "h1",
+    props: {
+        title: "foo",
+        children: "Hello",
+    },
+}
+
+const container = document.getElementById("root");
+
+const node = document.createElement(element.type);
+node["title"] = element.props.title;
+console.log(node);
+
+const text = document.createTextNode("");
+text["nodeValue"] = element.props.children;
+
+node.appendChild(text);
+container.appendChild(node);
+*/
+
+// React style
+function createElement(type, props, ...children) {
+    return {
+        type,
+        props: {
+            ...props,
+            children: children.map(child =>
+                typeof child === "object"
+                    ? child
+                    :createTextElement(child)
+            ),
+        },
+    }
+}
+
+function createTextElement(text) {
+    return {
+        type: "TEXT_ELEMENT",
+        props: {
+            nodeValue: text,
+            children: [],
+        },
+    }
+}
+
+function render(element, container) {
+    const dom =
+        element.type == "TEXT_ELEMENT"
+        ? document.createTextNode("")
+        : document.createElement(element.type);
+
+    const isProperty = key => key !== "children";
+    Object.keys(element.props)
+        .filter(isProperty)
+        .forEach(name => {
+            dom[name] = element.props[name]
+        });
+    
+    element.props.children.forEach(child =>
+            render(child, dom)
+        );
+
+    container.appendChild(dom);
+}
+
+const Didact = {
+    createElement,
+    render
+}
+
+
+
+//peut être traduit en JSX
+const element = Didact.createElement(
+    "div",
+    { id: "foo" },
+    Didact.createElement("a", null, "bar"),
+    Didact.createElement("b")
+)
+const container = document.getElementById("root");
+Didact.render(element, container);
+
