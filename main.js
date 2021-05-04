@@ -149,3 +149,4 @@ const element = Didact.createElement(
 const container = document.getElementById("root");
 Didact.render(element, container);
 
+console.log(document.createElement(element.type) == "TEXT_ELEMENT")
