@@ -36,18 +36,22 @@ function createElement(type, props, ...children) {
       return dom
   }
 
+  //add nodes to dom
   function commitRoot() {
-      //add nodes to dom
       commitWork(wipRoot.child);
       wipRoot = null;
   }
 
   function commitWork(fiber) {
+      //if no fiber, nothing, return nothing
       if (!fiber) {
           return
       }
+      //take parent of the fiber
       const domParent = fiber.parent.dom;
+      //add child on the parent
       domParent.appendChild(fiber.dom);
+      //Repeat that for child and sibling
       commitWork(fiber.child);
       commitWork(fiber.sibling);
   }
@@ -129,6 +133,8 @@ function createElement(type, props, ...children) {
         }
         nextFiber = nextFiber.parent
     }
+
+    return null
   }
 
   const Didact = {
@@ -136,7 +142,7 @@ function createElement(type, props, ...children) {
     render
   };
   
-  /** @jsx Didact.createElement */
+  /** @jsx conversion Didact.createElement */
   const element = Didact.createElement(
     "div",
     { id: "foo" },
