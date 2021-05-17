@@ -42,7 +42,7 @@ function createElement(type, props, ...children) {
       wipRoot = null;
   }
 
-  function commitWork() {
+  function commitWork(fiber) {
       if (!fiber) {
           return
       }
@@ -88,7 +88,7 @@ function createElement(type, props, ...children) {
     if (!fiber.dom) {
         fiber.dom = createDom(fiber)
     } //If we haven't fiber dom so create fiber to the dom
-
+    console.log('fiber', fiber)
     //create new fibers
     const elements = fiber.props.children;
     let index = 0;
@@ -103,15 +103,18 @@ function createElement(type, props, ...children) {
             parent: fiber,
             dom: null
         }
-    }
 
     //we add it to the fiber tree as a child or as a sibling
     if (index === 0) {
-        fiber.child = newFiber
+        fiber.child = newFiber;
     } else {
-        prevSibling.sibling = newFiber
-        index++
+        prevSibling.sibling = newFiber;
     }
+
+    prevSibling = newFiber;
+    index++
+    }
+
 
     // return next unit of work
     //We try first with the child, then with the sibling, then with with the uncle, and so on
@@ -126,7 +129,6 @@ function createElement(type, props, ...children) {
         }
         nextFiber = nextFiber.parent
     }
-    
   }
 
   const Didact = {
