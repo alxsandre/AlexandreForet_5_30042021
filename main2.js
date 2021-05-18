@@ -194,7 +194,7 @@ function createElement(type, props, ...children) {
         }
 
         if (oldFiber) {
-            oldfiber = oldFiber.sibling;
+            oldFiber = oldFiber.sibling;
         }
 
     //we add it to the fiber tree as a child or as a sibling
@@ -225,5 +225,16 @@ function createElement(type, props, ...children) {
   )
   const container = document.getElementById("root");
   Didact.render(element, container);
+
+  window.setTimeout(function () {
+    const element = Didact.createElement(
+      "div",
+      { id: "foo" },
+      Didact.createElement("a", null, "yoooo"),
+      Didact.createElement("b")
+    )
+    const container = document.getElementById("root");
+    Didact.render(element, container);
+  }, 5000)
   
 
