@@ -36,6 +36,8 @@ function createElement(type, props, ...children) {
       return dom
   }
 
+  const isEvent = k => k.startsWith('on');
+  const eventName = k => k.toLowerCase().substring(2);
   const isProperty = k => k != 'children';
   function updateDom(dom, prevProps, nextProps) {
       //delete old properties
@@ -43,7 +45,11 @@ function createElement(type, props, ...children) {
         .filter(isProperty)
         .forEach(name => {
             if (!(name in nextProps)) {
+              if (isEvent(name)) {
+                dom.removeEventListener(eventName(name), prevProps[name])
+              } else {
                 dom[name] = '';
+              }
             }
         })
 
@@ -52,7 +58,14 @@ function createElement(type, props, ...children) {
         .filter(isProperty)
         .forEach(name => {
             if (prevProps[name] != nextProps[name]) {
+              if (isEvent(name)) {
+                if (prevProps[name]) {
+                  dom.removeEventListener(eventName(name), prevProps[name])
+                }
+                dom.addEventListener(eventName(name), nextProps[name])
+              } else {
                 dom[name] = nextProps[name];
+              }
             }
         })
   }
@@ -217,24 +230,28 @@ function createElement(type, props, ...children) {
   };
   
   /** @jsx conversion Didact.createElement */
+  function step1() {
   const element = Didact.createElement(
     "div",
     { id: "foo" },
     Didact.createElement("a", null, "bar"),
-    Didact.createElement("b")
+    Didact.createElement("button", {onclick: step2}, "click")
   )
   const container = document.getElementById("root");
   Didact.render(element, container);
+  }
 
-  window.setTimeout(function () {
+  step1()
+  function step2() {
     const element = Didact.createElement(
       "div",
       { id: "foo" },
       Didact.createElement("a", null, "yoooo"),
-      Didact.createElement("b")
+      Didact.createElement("button", {onclick: step1}, "come back")
     )
     const container = document.getElementById("root");
     Didact.render(element, container);
-  }, 5000)
+  }
+  
   
 
