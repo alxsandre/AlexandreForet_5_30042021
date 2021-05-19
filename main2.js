@@ -161,6 +161,13 @@ function createElement(type, props, ...children) {
     return null
   }
 
+  function updatefunctionComponent(fiber) {
+    
+  }
+
+  function updateHostComponent(fiber) {
+
+  }
 
 
   function reconcileChildren(wipFiber, elements) {
