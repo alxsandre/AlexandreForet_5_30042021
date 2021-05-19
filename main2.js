@@ -231,6 +231,7 @@ function createElement(type, props, ...children) {
   
   /** @jsx conversion Didact.createElement */
   function step1() {
+    console.log('step1')
   const element = Didact.createElement(
     "div",
     { id: "foo" },
@@ -240,9 +241,10 @@ function createElement(type, props, ...children) {
   const container = document.getElementById("root");
   Didact.render(element, container);
   }
-
   step1()
+
   function step2() {
+    console.log('step2')
     const element = Didact.createElement(
       "div",
       { id: "foo" },
