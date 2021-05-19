@@ -21,6 +21,10 @@ function createElement(type, props, ...children) {
     };
   }
   
+  const isEvent = k => k.startsWith('on');
+  const eventName = k => k.toLowerCase().substring(2);
+  const isProperty = k => k != 'children';
+
   //create fiber for the dom
   function createDom(fiber) {
     const dom =
@@ -31,14 +35,15 @@ function createElement(type, props, ...children) {
     Object.keys(fiber.props) //return children or id, class etc.
       .filter(isProperty) // return all props but no childrens
       .forEach(name => {
-        dom[name] = fiber.props[name];
+        if (isEvent(name)) {
+          dom.addEventListener(eventName(name), fiber.props[name])
+        } else {
+          dom[name] = fiber.props[name];
+        }
       }); //added props (id, class...) at the dom
       return dom
   }
 
-  const isEvent = k => k.startsWith('on');
-  const eventName = k => k.toLowerCase().substring(2);
-  const isProperty = k => k != 'children';
   function updateDom(dom, prevProps, nextProps) {
       //delete old properties
       Object.keys(prevProps)
@@ -84,19 +89,32 @@ function createElement(type, props, ...children) {
           return
       }
       //take parent of the fiber
-      const domParent = fiber.parent.dom;
+      const domParentFiber = fiber.parent;
+      while(!domParentFiber.dom) {
+        domParentFiber = domParentFiber.parent
+      };
+      const domParent = domParentFiber.dom;
       if (fiber.effectTag === 'PLACEMENT' && fiber.dom != null) {
           //add child on the parent
-          domParent.appendChild(fiber.dom)
+          domParent.appendChild(fiber.dom);
       } else if (fiber.effectTag === 'DELETION') {
-          domParent.removeChild(fiber.dom)
+          commitDeletion(fiber, domParent);
             return
       } else if (fiber.effectTag === 'UPDATE' && fiber.dom != null) {
-          updateDom(fiber.dom, fiber.alternate.props, fiber.props)
+          updateDom(fiber.dom, fiber.alternate.props, fiber.props);
+          //domParent.appendChild(fiber.dom);
       }
       //add child, sibling
       commitWork(fiber.child);
       commitWork(fiber.sibling);
+  }
+
+  function commitDeletion(fiber, domParent) {
+    if (fiber.dom) {
+      domParent.removeChild(fiber.dom)
+    } else {
+      commitDeletion(fiber.child, domParent)
+    }
   }
   //we set nextUnitOfWork to the root of the fiber tree
   function render(element, container) {
@@ -135,15 +153,12 @@ function createElement(type, props, ...children) {
 
   //performs the work but also returns the next unit of work
   function performUnitOfWork(fiber) {
-    //add dom node
-    if (!fiber.dom) {
-        fiber.dom = createDom(fiber)
-    } //If we haven't fiber dom so create fiber to the dom
-    console.log('fiber', fiber)
-    //create new fibers
-    const elements = fiber.props.children;
-
-    reconcileChildren(fiber, elements)
+    //if instance of function call updatefunctionComponent with fiber
+    if (fiber.type instanceof Function) {
+      updatefunctionComponent(fiber)
+    } else {
+      updateHostComponent(fiber)
+    }
     // return next unit of work
     //We try first with the child, then with the sibling, then with with the uncle, and so on
     if (fiber.child) {
@@ -162,11 +177,20 @@ function createElement(type, props, ...children) {
   }
 
   function updatefunctionComponent(fiber) {
-    
+    const children = [fiber.type(fiber.props)];
+    reconcileChildren(fiber, children)
   }
 
   function updateHostComponent(fiber) {
+        //add dom node
+    if (!fiber.dom) {
+        fiber.dom = createDom(fiber)
+    } //If we haven't fiber dom so create fiber to the dom
+    console.log('fiber', fiber)
+    //create new fibers
+    const elements = fiber.props.children;
 
+    reconcileChildren(fiber, elements)
   }
 
 
