@@ -135,6 +135,8 @@ function createElement(type, props, ...children) {
   let wipRoot = null;
   let currentRoot = null;
   let deletions = [];
+  let hookIndex = null;
+  let wipFiber = null;
 
   function workLoop(deadline) {
     let shouldYield = false;
@@ -177,8 +179,27 @@ function createElement(type, props, ...children) {
   }
 
   function updatefunctionComponent(fiber) {
+    wipFiber = fiber;
+    hookIndex = 0;
+    wipFiber.hooks = [];
     const children = [fiber.type(fiber.props)];
     reconcileChildren(fiber, children)
+  }
+
+  function useState(initial) {
+    const oldHook = wipFiber.alternate && wipFiber.alternate.hooks && wipFiber.alternate.hooks[hookIndex];
+    const hook = {
+      state: oldHook ? oldHook.state : initial
+    }
+    wipFiber.hooks.push(hook);
+
+    const setState = state => {
+      hook.state = state;
+      render(currentRoot.props.children[0], currentRoot.dom)
+    }
+
+    hookIndex++
+    return [hook.state, setState]
   }
 
   function updateHostComponent(fiber) {
@@ -257,7 +278,8 @@ function createElement(type, props, ...children) {
 
   const Didact = {
     createElement,
-    render
+    render,
+    useState
   };
   
   /** @jsx conversion Didact.createElement */
@@ -286,5 +308,22 @@ function createElement(type, props, ...children) {
     Didact.render(element, container);
   }
   
+  function useIncrement() {
+    const [n, setN] = Didact.useState(0);
+    const increment = function() {
+      setN(n + 1)
+    }
+    return [n, increment]
+  }
   
+  function compteur() {
+    const [n, increment] = useIncrement();
+    const element = Didact.createElement(
+      'h1',
+      {onclick: () => increment()},
+      'compte'+ n)
+      const container = document.getElementById("root");
+      Didact.render(element, container);
+  }
+  compteur()
 
