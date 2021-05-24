@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "kids-regular";
+  src: url("../fonts/Kiddos-Demo.ttf");
+}
+@font-face {
+  font-family: "kids-logo";
+  src: url("../fonts/Kids-Regular.ttf");
+}
+@font-face {
+  font-family: "kids-medium";
+  src: url("../fonts/Kids-Note.ttf");
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body {
+  font-family: "kids-medium", helvetica, Arial;
+}
+
+h2 {
+  font-family: "kids-logo", helvetica, Arial;
+}
+
+header .header__logo {
+  font-family: "kids-logo", Arial, Helvetica;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.thumnbail {
+  display: block;
+  margin: 0;
+  width: 200px;
+  height: 100%;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */
