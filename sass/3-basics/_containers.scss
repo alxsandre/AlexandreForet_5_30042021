@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.containernospace {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containercolumn {
+    display: flex;
+    flex-direction: column;
+}
+

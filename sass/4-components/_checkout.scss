@@ -1,0 +1,37 @@
+.checkout {
+    padding: 0 10%;
+    .img__container {
+        width: 20%;
+        overflow: hidden;
+        border-right: solid black 1px;
+        border-bottom: solid black 1px;
+        border-left: solid black 1px;
+    }
+    &__container {
+        width: 80%;
+        padding: .5rem;
+        border-bottom: solid black 1px;
+        border-right: solid black 1px;
+    }
+
+    form {
+        div {
+            display: flex;
+            flex-direction: column;
+            padding: .5rem;
+            border-bottom: .1rem solid black;
+            border-left: .1rem solid black;
+            border-right: .1rem solid black;
+            input {
+                border: solid black 0.1rem;
+
+                &:focus {
+                    border: solid black 0.2rem;
+                    outline: none;
+                }
+            }
+
+            
+        }
+    }
+}

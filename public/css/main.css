@@ -8,25 +8,44 @@
 }
 @font-face {
   font-family: "kids-medium";
-  src: url("../fonts/Kids-Note.ttf");
+  src: url("../fonts/55Roman.ttf");
 }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "kids-medium", helvetica, Arial;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-body {
-  font-family: "kids-medium", helvetica, Arial;
-}
-
-h2 {
-  font-family: "kids-logo", helvetica, Arial;
-}
-
-header .header__logo {
-  font-family: "kids-logo", Arial, Helvetica;
-  font-size: 4rem;
-  margin: 0;
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
@@ -35,16 +54,148 @@ header .header__logo {
   flex-wrap: wrap;
 }
 
-.thumnbail {
-  display: block;
-  margin: 0;
-  width: 200px;
-  height: 100%;
+.containernospace {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-img {
-  object-fit: contain;
+.containercolumn {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons {
+  border: 0.1rem solid black;
+  border-radius: 10%;
+  width: 12.8125rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 100vh;
+  padding: 0.357rem 1.25rem;
+  align-self: center;
+  margin: 0.5rem 0;
+}
+
+header {
+  border-bottom: 1px black solid;
+  padding: 0 1rem;
+}
+header nav {
+  align-items: center;
+}
+header .header__logo {
+  font-family: "kids-logo", Arial, Helvetica;
+  font-size: 4rem;
+  margin: 0;
+}
+header li {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+}
+
+footer {
+  border: 1px black solid;
+  margin-top: 1rem;
+}
+footer section {
+  border-right: 1px black solid;
+  width: 33.333333%;
+  text-align: center;
+}
+
+.thumnbail {
+  margin: 0;
+  width: 33.333333%;
+  height: 20.625rem;
+  border: 0.1rem black solid;
+  border-top: none;
+  border-left: none;
+  overflow: hidden;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.thumnbail a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.thumnbail .img__container {
+  height: 15.625rem;
+}
+.thumnbail .price {
+  position: relative;
+  top: -0.3rem;
+  font-size: 0.75rem;
+}
+
+.PDP__container {
+  width: 50%;
+  overflow: hidden;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+}
+.PDP__container * {
+  padding: 0.5rem;
+}
+.PDP__description {
+  display: block;
+  border-bottom: 1px solid black;
   width: 100%;
+}
+.PDP__colors {
+  border-bottom: 1px solid black;
+}
+.PDP__CTA {
+  background: #44DB5E;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.PDP__CTA:active {
+  filter: brightness(0.5);
+}
+
+.checkout {
+  padding: 0 10%;
+}
+.checkout .img__container {
+  width: 20%;
+  overflow: hidden;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-left: solid black 1px;
+}
+.checkout__container {
+  width: 80%;
+  padding: 0.5rem;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+}
+.checkout form div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+}
+.checkout form div input {
+  border: solid black 0.1rem;
+}
+.checkout form div input:focus {
+  border: solid black 0.2rem;
+  outline: none;
 }
 
 /*# sourceMappingURL=main.css.map */

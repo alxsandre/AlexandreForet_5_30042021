@@ -1,0 +1,20 @@
+header {
+    border-bottom: 1px black solid;
+    padding: 0 1rem;
+
+    nav {
+        align-items: center;
+    }
+
+    .header__logo {
+        font-family: "kids-logo", Arial, Helvetica;
+        font-size: 4rem;
+        margin: 0;
+    }
+
+    li {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        padding: .5rem;
+    }
+}

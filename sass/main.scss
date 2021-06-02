@@ -7,11 +7,17 @@
 @import "2-tools/mediaqueries";
 
 // 3-BASICS
-@import "3-basics/general.scss";
+@import "3-basics/general";
+@import "3-basics/img";
+@import "3-basics/containers";
+@import "3-basics/buttons";
 
-// 4 - LAYOUT
-@import "4-layout/header.scss";
-@import "4-layout/components";
+// 4 - COMPONENTS
+@import "4-components/header";
+@import "4-components/footer";
+@import "4-components/thumnbail";
+@import "4-components/PDP";
+@import "4-components/checkout";
 
 // 5 - MODULES
 

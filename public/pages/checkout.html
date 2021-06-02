@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://kit.fontawesome.com/dcae80849e.js" crossorigin="anonymous" defer></script>
+    <script src="../custom.js" defer></script>
+</head>
+<body id="root">
+    <header>
+        <nav class="container">
+            <a href="../index.html">
+                <h1 class="header__logo">Orinoco</h1>
+            </a>
+            <ul class="container">
+                <li>Contact</li>
+                <li>
+                    <a href="./checkout.html">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="basket__number"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout">
+
+        <article class="containernospace">
+            <div class="img__container">
+                <img src="http://localhost:3000/images/teddy_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            </div>
+            <div class="checkout__container">
+                <h2>Norbert</h2>
+                <span class="checkout__price">29.00 €</span>
+                <div class="checkout__colors">colors</div>
+            </div>
+        </article>
+
+        <form class="containercolumn" action="URLpourenvoyerlesdonnées" method="post">
+            <div>
+                <label for="lastName">Nom :</label>
+                <input type="text" id="lastName" name="user_lastName">
+            </div>
+            <div>
+                <label for="firstName">Prénom :</label>
+                <input type="text" id="firstName" name="user_fistName">
+            </div>
+            <div>
+                <label for="adress">adresse :</label>
+                <input type="adress" id="adress" name="user_adress">
+            </div>
+            <div>
+                <label for="city">ville :</label>
+                <input type="city" id="city" name="user_city">
+            </div>
+            <div>
+                <label for="mail">e-mail :</label>
+                <input type="email" id="mail" name="user_mail">
+            </div>
+            <div>
+                <button class="buttons" type="button">Acheter</button>
+            </div>
+        </form>
+    </main>
+    
+
+    <footer class="container">
+        <section>
+            <h3>Nous contacter</h3>
+            <ul>
+                <li>Nos Conseillers vous répondront du lundi au samedi de 9h30 à 19h00</li>
+                <li>Appelez-nous: <a href="tel:+33184000023">+33 1 84 00 00 23</a></li>
+                <li><a href="mailto:contactus@orinoco.com"><u>envoyez-nous un email</u></a></li>
+            </ul>
+        </section>
+        <section>
+            <h3>Notre entreprise</h3>
+            <ul>
+                <li>Carriere</li>
+                <li>Mentions légales</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Newsletter</h3>
+            <ul>
+                <li>S'inscrire à notre newsletter</li>
+            </ul>
+        </section>
+
+       
+    </footer>
+</body>
+</html>
