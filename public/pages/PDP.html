@@ -7,7 +7,7 @@
     <title>Orinoco</title>
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://kit.fontawesome.com/dcae80849e.js" crossorigin="anonymous" defer></script>
-    <script src="../custom.js" defer></script>
+    <script type="module" src="../JS/main.js" defer></script>
 </head>
 <body id="root">
     <header>
@@ -28,13 +28,13 @@
     </header>
     <main class="containernospace PDP">
         <div class="PDP__container">
-            <img src="http://localhost:3000/images/teddy_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <img id="image" src="http://localhost:3000/images/teddy_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
         </div>
         <div class="PDP__container">
-            <h2>Norbert</h2>
-            <span class="PDP__price">29.00 €</span>
-            <p class="PDP__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="PDP__colors">colors</div>
+            <h2 id="name">Norbert</h2>
+            <span id="price" class="PDP__price">29.00 €</span>
+            <p id="description" class="PDP__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div id="colors" class="PDP__colors">colors</div>
             <button class="PDP__CTA" type="button">Ajouter au panier</button>
         </div>
     </main>

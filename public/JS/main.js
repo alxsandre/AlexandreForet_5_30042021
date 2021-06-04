@@ -1,68 +1,10 @@
+import basket from './basket.js';
+import { dynamicPDP } from './PDP.js';
 
-/*class Article {
-    constructor(listArticles){
-        listArticles && Object.assign(this, listArticles)
-    }
-
-    getFormatedPrice() {
-        let priceFloat = parseFloat(this.price);
-        priceFloat = priceFloat * 0.01;
-        priceFloat = priceFloat.toFixed(2) + ' €';
-        return priceFloat;
-    }
-}
-
-class ArticleManager {
-    constructor(listArticle){
-        this.listArticle = listArticle;
-    }
-}*/
-
-/*
-function addBasket(number) {
-    let listBasket = getBasket();
-    listBasket.push(number);
-    saveBasket(listBasket);
-}
-
-function getBasket() {
-    let listBasket = localStorage.getItem("listBasket");
-    if (listBasket == null) {
-        return [];
-    } else {
-        return JSON.parse(listBasket);
-    }
-}
-
-function saveBasket(listBasket) {
-    localStorage.setItem("listBasket", JSON.stringify(listBasket));
-}
-*/
-
-//add article in the basket
-const numberBasket = document.querySelector('.basket__number')
-let number = 0;
-
-function addNumberBasket() {
-    number = Number(localStorage.getItem("numberInBasket"));
-    ++number;
-    localStorage.setItem("numberInBasket", number);
-    numberBasket.innerHTML = localStorage.getItem("numberInBasket");
-}
-
-if (document.URL.includes("PDP.html")) {
-    const ctaAddArticle = document.querySelector('.PDP__CTA')
-    ctaAddArticle.addEventListener("click", addNumberBasket);
-}
-
-if (localStorage.getItem("numberInBasket")) {
-    numberBasket.innerHTML = localStorage.getItem("numberInBasket");
-}
+basket();
 
 
-
-
- const createThumbnail = (productInfos) => {
+const createThumbnail = (productInfos) => {
         const main = document.querySelector('.main__accueil');
 
         //create thumnbail
@@ -76,7 +18,7 @@ if (localStorage.getItem("numberInBasket")) {
         const link = document.createElement('a');
         section.appendChild(link);
         const href = document.createAttribute('href');
-        href.value = "./pages/PDP.html"
+        href.value = "./pages/PDP.html?id=" + productInfos._id
         link.setAttributeNode(href);
 
         //create title for thumnbail
@@ -121,23 +63,42 @@ if (localStorage.getItem("numberInBasket")) {
 
 
  
- fetch('http://localhost:3000/api/teddies')
+fetch('http://localhost:3000/api/teddies')
     .then(res => {
         if (res.ok) {
             return res.json();
         }
     })
     .then(products => {
-        for (const product of products) {
-            createThumbnail(product);
-            console.log(product)
+        if (document.URL.includes("index.html")) {
+            for (const product of products) {
+                createThumbnail(product);
+                console.log(product)
+            }
         }
     })
     .catch(err => console.log('fatal error!!'));
 
 
+if (document.URL.includes("PDP.html")) {
+    const actualUrl = new URL(window.location.href);
+    let idUrl = actualUrl.search.substring(4);
+
+    fetch('http://localhost:3000/api/teddies/' + idUrl)
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then(product => {
+            console.log(product)
+            dynamicPDP(product.name, product.price, product.description, product.colors, product.imageUrl)
+        })
+        .catch(err => console.log('fatal error!!'));
+}
 
 
+    
 // Test home made framework
 
 /*
