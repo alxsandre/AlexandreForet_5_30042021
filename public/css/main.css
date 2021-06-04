@@ -118,7 +118,9 @@ footer section {
   border-top: none;
   border-left: none;
   overflow: hidden;
-  padding: 1rem 1rem 1rem 1rem;
+}
+.thumnbail h2, .thumnbail span {
+  padding: 0.5rem 1rem 0.1rem 1rem;
 }
 .thumnbail a {
   display: flex;
@@ -138,34 +140,34 @@ footer section {
   font-size: 0.75rem;
 }
 
-.PDP__container {
+.productpage__container {
   width: 50%;
   overflow: hidden;
   border-right: solid black 1px;
   border-bottom: solid black 1px;
 }
-.PDP__container * {
+.productpage__container * {
   padding: 0.5rem;
 }
-.PDP__image {
+.productpage__image {
   padding: 0;
 }
-.PDP__description {
+.productpage__description {
   display: block;
   border-bottom: 1px solid black;
   width: 100%;
 }
-.PDP__colors {
+.productpage__colors {
   border-bottom: 1px solid black;
 }
-.PDP__CTA {
+.productpage__calltoaction {
   background: #44DB5E;
   width: 100%;
   border: none;
   border-bottom: 1px solid black;
   cursor: pointer;
 }
-.PDP__CTA:active {
+.productpage__calltoaction:active {
   filter: brightness(0.5);
 }
 

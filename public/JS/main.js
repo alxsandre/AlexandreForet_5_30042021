@@ -1,10 +1,8 @@
-import basket from './basket.js';
-import { dynamicPDP } from './PDP.js';
-
-basket();
+import './product.js';
+import './cart.js';
 
 
-const createThumbnail = (productInfos) => {
+const createThumbnail = productInfos => {
         const main = document.querySelector('.main__accueil');
 
         //create thumnbail
@@ -18,7 +16,7 @@ const createThumbnail = (productInfos) => {
         const link = document.createElement('a');
         section.appendChild(link);
         const href = document.createAttribute('href');
-        href.value = "./pages/PDP.html?id=" + productInfos._id
+        href.value = "./pages/productpage.html?id=" + productInfos._id;
         link.setAttributeNode(href);
 
         //create title for thumnbail
@@ -80,22 +78,7 @@ fetch('http://localhost:3000/api/teddies')
     .catch(err => console.log('fatal error!!'));
 
 
-if (document.URL.includes("PDP.html")) {
-    const actualUrl = new URL(window.location.href);
-    let idUrl = actualUrl.search.substring(4);
 
-    fetch('http://localhost:3000/api/teddies/' + idUrl)
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-        })
-        .then(product => {
-            console.log(product)
-            dynamicPDP(product.name, product.price, product.description, product.colors, product.imageUrl)
-        })
-        .catch(err => console.log('fatal error!!'));
-}
 
 
     
