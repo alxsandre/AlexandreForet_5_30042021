@@ -10,6 +10,4 @@ let imageProduct = document.getElementById("image");
     descriptionProduct.innerHTML = description;
     colorProduct.innerHTML = colors;
     imageProduct = imageProduct.setAttribute("src", image);
-    //console.log(imageProduct.value)
-    //imageProduct.value = image;
 }

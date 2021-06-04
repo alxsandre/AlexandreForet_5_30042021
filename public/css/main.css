@@ -147,6 +147,9 @@ footer section {
 .PDP__container * {
   padding: 0.5rem;
 }
+.PDP__image {
+  padding: 0;
+}
 .PDP__description {
   display: block;
   border-bottom: 1px solid black;
