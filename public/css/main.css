@@ -203,4 +203,8 @@ footer section {
   outline: none;
 }
 
+input:invalid {
+  border: 2px dashed red;
+}
+
 /*# sourceMappingURL=main.css.map */

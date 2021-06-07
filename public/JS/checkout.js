@@ -40,3 +40,32 @@ for (let i = 0; i < productsId.length; i++) {
             .catch(err => console.error(err));    
     }
 }
+
+if (document.URL.includes("checkout.html")) {
+    document.querySelector('.form')
+        .addEventListener("submit",function(e) {
+            e.preventDefault();
+            console.log(this)
+            let formData;
+            formData = new FormData(this);
+            let contact = {};
+            formData.forEach(function(value, key){
+                contact[key] = value;
+            });
+            console.log(contact)
+            let valid = true;
+            for(let input of document.querySelectorAll("form input")) {
+                valid &= input.reportValidity()
+                if(!valid) break
+            }
+            if (valid) {
+                fetch('http://localhost:3000/api/teddies/order', {
+                    method: 'post',
+                    body: contact
+                })
+                .then(res => res.text())
+                .then(text => console.log(text))
+                .catch(err => console.error(err))
+            }
+        })
+}

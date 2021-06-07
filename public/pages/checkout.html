@@ -43,29 +43,29 @@
             -->
         </article>
 
-        <form class="containercolumn" action="URLpourenvoyerlesdonnées" method="post">
+        <form class="form containercolumn" action="URLpourenvoyerlesdonnées" method="post" name="contact">
             <div>
                 <label for="lastName">Nom :</label>
-                <input type="text" id="lastName" name="user_lastName">
+                <input type="text" id="lastName" name="lastName" required>
             </div>
             <div>
                 <label for="firstName">Prénom :</label>
-                <input type="text" id="firstName" name="user_fistName">
+                <input type="text" id="firstName" name="firstName" required>
             </div>
             <div>
                 <label for="adress">adresse :</label>
-                <input type="adress" id="adress" name="user_adress">
+                <input type="address" id="adress" name="address" required>
             </div>
             <div>
                 <label for="city">ville :</label>
-                <input type="city" id="city" name="user_city">
+                <input type="city" id="city" name="city" required >
             </div>
             <div>
                 <label for="mail">e-mail :</label>
-                <input type="email" id="mail" name="user_mail">
+                <input type="email" id="mail" name="email" required >
             </div>
             <div>
-                <button class="buttons" type="button">Acheter</button>
+                <input type="submit" class="buttons" value="Acheter" >
             </div>
         </form>
     </main>

@@ -29,9 +29,11 @@
                     border: solid black 0.2rem;
                     outline: none;
                 }
-            }
-
-            
+            }            
         }
     }
 }
+
+input:invalid {
+    border: 2px dashed red;
+  }
