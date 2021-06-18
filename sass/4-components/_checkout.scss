@@ -13,6 +13,17 @@
         border-bottom: solid black 1px;
         border-right: solid black 1px;
     }
+    &__total {
+        border: solid black 1px;
+        border-top: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem .5rem;
+
+        p {
+            margin: 0;
+        }
+    }
 
     form {
         div {

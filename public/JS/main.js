@@ -1,5 +1,6 @@
 import './product.js';
 import './cart.js';
+import { transformPrice } from './utils.js'
 
 
 const createThumbnail = productInfos => {
@@ -29,10 +30,8 @@ const createThumbnail = productInfos => {
         priceStyle.value = "price";
         span.setAttributeNode(priceStyle);
         let price = productInfos.price;
-        let priceFloat = parseFloat(price);
-        priceFloat = priceFloat * 0.01;
-        priceFloat = priceFloat.toFixed(2) + ' €';
-        link.appendChild(span).innerHTML = priceFloat;
+        // Set the price with the good writting
+        link.appendChild(span).innerHTML = transformPrice(price);
         
         //create img for thumnbail
         const div = document.createElement('div');
@@ -52,11 +51,6 @@ const createThumbnail = productInfos => {
         imgDescription.value = productInfos.description;
         img.setAttributeNode(imgDescription);
 
-        /*
-        //create description for thumnbail
-        const para = document.createElement('p');
-        section.appendChild(para).innerHTML = productInfos.description;
-        */
     };
 
 
@@ -77,32 +71,3 @@ fetch('http://localhost:3000/api/teddies')
     })
     .catch(err => console.log('fatal error!!'));
 
-
-
-
-
-    
-// Test home made framework
-
-/*
-// Vanilla JS
-const element = {
-    type: "h1",
-    props: {
-        title: "foo",
-        children: "Hello",
-    },
-}
-
-const container = document.getElementById("root");
-
-const node = document.createElement(element.type);
-node["title"] = element.props.title;
-console.log(node);
-
-const text = document.createTextNode("");
-text["nodeValue"] = element.props.children;
-
-node.appendChild(text);
-container.appendChild(node);
-*/

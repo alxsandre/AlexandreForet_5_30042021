@@ -10,65 +10,64 @@
     <script type="module" src="../JS/checkout.js" defer></script>
 </head>
 <body id="root">
-    <header>
-        <nav class="container">
-            <a href="../index.html">
-                <h1 class="header__logo">Orinoco</h1>
-            </a>
-            <ul class="container">
-                <li>Contact</li>
-                <li>
-                    <a href="./checkout.html">
-                        <i class="fas fa-shopping-basket"></i>
-                        <span class="basket__number"></span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div class="maincontainer">
+        <header>
+            <nav class="container">
+                <a href="../index.html">
+                    <h1 class="header__logo">Orinoco</h1>
+                </a>
+                <ul class="container">
+                    <li>Contact</li>
+                    <li>
+                        <a href="./checkout.html">
+                            <i class="fas fa-shopping-basket"></i>
+                            <span class="basket__number"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <main class="checkout">
 
-   
-        <article class="containernospace">
-            <!--
-            <div class="img__container">
-                <img src="http://localhost:3000/images/teddy_1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
-            </div>
-            <div class="checkout__container">
-                <h2>Norbert</h2>
-                <span class="checkout__price">29.00 €</span>
-                <div class="checkout__colors">colors</div>
-            </div>
-            -->
-        </article>
+    
+        <main class="checkout">
 
-        <form class="form containercolumn" action="URLpourenvoyerlesdonnées" method="post" name="contact">
-            <div>
-                <label for="lastName">Nom :</label>
-                <input type="text" id="lastName" name="lastName" required>
+            <section class="containernospace">
+            </section>
+
+            <div class="checkout__total">
+                <p>TOTAL ESTIME:</p> 
+                <p class="checkout__totalprice">0.00 €</p>
             </div>
-            <div>
-                <label for="firstName">Prénom :</label>
-                <input type="text" id="firstName" name="firstName" required>
-            </div>
-            <div>
-                <label for="adress">adresse :</label>
-                <input type="address" id="adress" name="address" required>
-            </div>
-            <div>
-                <label for="city">ville :</label>
-                <input type="city" id="city" name="city" required >
-            </div>
-            <div>
-                <label for="mail">e-mail :</label>
-                <input type="email" id="mail" name="email" required >
-            </div>
-            <div>
-                <input type="submit" class="buttons" value="Acheter" >
-            </div>
-        </form>
-    </main>
+
+            <form class="form containercolumn" name="contact">
+                <div>
+                    <label for="lastName">Nom :</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div>
+                    <label for="firstName">Prénom :</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div>
+                    <label for="adress">adresse :</label>
+                    <input type="address" id="adress" name="address" required>
+                </div>
+                <div>
+                    <label for="city">ville :</label>
+                    <input type="city" id="city" name="city" required >
+                </div>
+                <div>
+                    <label for="mail">e-mail :</label>
+                    <input type="email" id="mail" name="email" required >
+                </div>
+                <div>
+                    <input type="submit" class="buttons" value="Acheter">
+                </div>
+            </form>
+
+        </main>
+    </div>
     
 
     <footer class="container">

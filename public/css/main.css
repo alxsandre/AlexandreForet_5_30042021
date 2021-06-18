@@ -64,6 +64,10 @@ img {
   flex-direction: column;
 }
 
+.maincontainer {
+  min-height: calc(100vh - 125px);
+}
+
 button {
   background: transparent;
   border: none;
@@ -113,7 +117,7 @@ footer section {
 .thumnbail {
   margin: 0;
   width: 33.333333%;
-  height: 20.625rem;
+  height: 17rem;
   border: 0.1rem black solid;
   border-top: none;
   border-left: none;
@@ -133,6 +137,7 @@ footer section {
 }
 .thumnbail .img__container {
   height: 15.625rem;
+  border-top: 0.1rem solid black;
 }
 .thumnbail .price {
   position: relative;
@@ -186,6 +191,16 @@ footer section {
   padding: 0.5rem;
   border-bottom: solid black 1px;
   border-right: solid black 1px;
+}
+.checkout__total {
+  border: solid black 1px;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+}
+.checkout__total p {
+  margin: 0;
 }
 .checkout form div {
   display: flex;

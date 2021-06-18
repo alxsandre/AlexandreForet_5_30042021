@@ -1,4 +1,4 @@
-import { idUrl } from './utils.js';
+import { idUrl, transformPrice } from './utils.js';
 
 let nameProduct = document.getElementById("name");
 let priceProduct = document.getElementById("price");
@@ -8,7 +8,7 @@ let imageProduct = document.getElementById("image");
  
  export function dynamicRenderProduct(name, price, description, colors, image) {
     nameProduct.innerHTML = name;
-    priceProduct.innerHTML = price;
+    priceProduct.innerHTML = transformPrice(price);
     descriptionProduct.innerHTML = description;
     colorProduct.innerHTML = colors;
     imageProduct = imageProduct.setAttribute("src", image);

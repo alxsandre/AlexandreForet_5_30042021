@@ -1,14 +1,13 @@
 .thumnbail {
     margin: 0;
     width: 33.333333%;
-    height: 20.625rem;
+    height: 17rem;
     border: .1rem black solid;
     border-top: none;
     border-left: none;
     overflow: hidden;
 
     h2, span {
-
     padding: .5rem 1rem .1rem 1rem;
     }
 
@@ -24,6 +23,7 @@
 
     .img__container {
         height: 15.625rem;
+        border-top: .1rem solid black;
     }
 
     .price {
