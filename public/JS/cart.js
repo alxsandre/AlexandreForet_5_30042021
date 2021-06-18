@@ -1,42 +1,29 @@
 import { idUrl } from './utils.js';
 
-//add article in the basket
-const numberBasket = document.querySelector('.basket__number')
-let number = 0;
+const numberBasket = document.querySelector('.basket__number');
 
-
-//Call when click on the call to action
+//Call when click we click on the button to add a product into the cart
 if (document.URL.includes("productpage.html")) {
     const ctaAddArticle = document.querySelector('.productpage__calltoaction');
     
     ctaAddArticle.addEventListener('click', function () {
-    addProductCart(idUrl)
+    addProduct(idUrl);
     });
 }
 
-function addProductCart(idUrl) {
-    addNumberBasket();
-    addProduct(idUrl);
- }
-
- //function to update the basket's number
-function addNumberBasket() {
-    number = Number(localStorage.getItem("numberInBasket"));
-    ++number;
-    localStorage.setItem("numberInBasket", number);
-    numberBasket.innerHTML = localStorage.getItem("numberInBasket");
+//initialize the cart on Front
+if(getBasket().length === 0) {
+    numberBasket.innerHTML = '';
+} else {
+    numberBasket.innerHTML = getBasket().length;
 }
-
-if (localStorage.getItem("numberInBasket")) {
-    numberBasket.innerHTML = localStorage.getItem("numberInBasket");
-}
-
 
 //function to add the id product into the local storage
 function addProduct(product) {
     let listProduct = getBasket();
     listProduct.push(product);
     saveBasket(listProduct);
+    numberBasket.innerHTML = listProduct.length; //update the cart
 }
 
 function getBasket() {
