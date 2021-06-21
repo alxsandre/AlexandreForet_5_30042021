@@ -68,6 +68,10 @@ img {
   min-height: calc(100vh - 125px);
 }
 
+.container__logo {
+  width: 10rem;
+}
+
 button {
   background: transparent;
   border: none;
