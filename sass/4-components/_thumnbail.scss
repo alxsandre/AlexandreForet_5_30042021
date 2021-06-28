@@ -1,35 +1,35 @@
 .thumnbail {
-    margin: 0;
-    width: 33.333333%;
-    height: 17rem;
-    border: .1rem black solid;
-    border-top: none;
-    border-left: none;
-    overflow: hidden;
+  margin: 0;
+  width: 33.333333%;
+  height: 17rem;
+  border: 0.1rem black solid;
+  border-top: none;
+  border-left: none;
+  overflow: hidden;
 
-    h2, span {
-    padding: .5rem 1rem .1rem 1rem;
-    }
+  h2,
+  span {
+    padding: 0.5rem 1rem 0.1rem 1rem;
+  }
 
-    a {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        cursor: pointer;
-        text-decoration: none;
-        color: black;
-    }
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
 
-    .img__container {
-        height: 15.625rem;
-        border-top: .1rem solid black;
-    }
+  .img__container {
+    height: 15.625rem;
+    border-top: 0.1rem solid black;
+  }
 
-    .price {
-        position: relative;
-        top: -.3rem;
-        font-size: .75rem;
-    }
+  .price {
+    position: relative;
+    top: -0.3rem;
+    font-size: 0.75rem;
+  }
 }
-

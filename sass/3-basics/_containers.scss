@@ -1,23 +1,23 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .containernospace {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .containercolumn {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .maincontainer {
-    min-height: calc(100vh - 125px); 
+  min-height: calc(100vh - 125px);
 }
-  
+
 .container__logo {
-    width: 10rem;
+  width: 10rem;
 }

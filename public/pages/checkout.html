@@ -1,99 +1,127 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orinoco</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="https://kit.fontawesome.com/dcae80849e.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="../css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/dcae80849e.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <script type="module" src="../js/checkout.js" defer></script>
-</head>
-<body id="root">
+  </head>
+  <body id="root">
     <div class="maincontainer">
-        <header>
-            <nav class="container">
-                <a href="../index.html">
-                    <h1 class="header__logo">Orinoco</h1>
-                </a>
-                <ul class="container">
-                    <li>Contact</li>
-                    <li>
-                        <a href="./checkout.html">
-                            <i class="fas fa-shopping-basket"></i>
-                            <span class="cart__number"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+      <header>
+        <nav class="container">
+          <a href="../index.html">
+            <h1 class="header__logo">Orinoco</h1>
+          </a>
+          <ul class="container">
+            <li>Contact</li>
+            <li>
+              <a href="./checkout.html">
+                <i class="fas fa-shopping-basket"></i>
+                <span class="cart__number"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
+      <main class="checkout">
+        <section class="containernospace"></section>
 
-    
-        <main class="checkout">
+        <div class="checkout__total">
+          <p>TOTAL ESTIME:</p>
+          <p class="checkout__totalprice">0.00 €</p>
+        </div>
 
-            <section class="containernospace">
-            </section>
-
-            <div class="checkout__total">
-                <p>TOTAL ESTIME:</p> 
-                <p class="checkout__totalprice">0.00 €</p>
-            </div>
-
-            <form class="form containercolumn" name="contact">
-                <div>
-                    <label for="lastName">Nom :</label>
-                    <input type="text" id="lastName" name="lastName" maxlength="50" required>
-                </div>
-                <div>
-                    <label for="firstName">Prénom :</label>
-                    <input type="text" id="firstName" name="firstName" maxlength="50" required>
-                </div>
-                <div>
-                    <label for="address">adresse :</label>
-                    <input type="address" id="address" name="address" maxlength="95" required>
-                </div>
-                <div>
-                    <label for="city">ville :</label>
-                    <input type="city" id="city" name="city" maxlength="35" required >
-                </div>
-                <div>
-                    <label for="mail">e-mail :</label>
-                    <input type="email" id="mail" name="email" maxlength="62" required >
-                </div>
-                <div id="form__button">
-                    <input type="submit" class="buttons" value="Acheter">
-                </div>
-            </form>
-
-        </main>
+        <form class="form containercolumn" name="contact">
+          <div>
+            <label for="lastName">Nom :</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div>
+            <label for="firstName">Prénom :</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              maxlength="50"
+              required
+            />
+          </div>
+          <div>
+            <label for="address">adresse :</label>
+            <input
+              type="address"
+              id="address"
+              name="address"
+              maxlength="95"
+              required
+            />
+          </div>
+          <div>
+            <label for="city">ville :</label>
+            <input type="city" id="city" name="city" maxlength="35" required />
+          </div>
+          <div>
+            <label for="mail">e-mail :</label>
+            <input
+              type="email"
+              id="mail"
+              name="email"
+              maxlength="62"
+              required
+            />
+          </div>
+          <div id="form__button">
+            <input type="submit" class="buttons" value="Acheter" />
+          </div>
+        </form>
+      </main>
     </div>
-    
 
     <footer class="container">
-        <section>
-            <h3>Nous contacter</h3>
-            <ul>
-                <li>Nos Conseillers vous répondront du lundi au samedi de 9h30 à 19h00</li>
-                <li>Appelez-nous: <a href="tel:+33184000023">+33 1 84 00 00 23</a></li>
-                <li><a href="mailto:contactus@orinoco.com"><u>envoyez-nous un email</u></a></li>
-            </ul>
-        </section>
-        <section>
-            <h3>Notre entreprise</h3>
-            <ul>
-                <li>Carriere</li>
-                <li>Mentions légales</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Newsletter</h3>
-            <ul>
-                <li>S'inscrire à notre newsletter</li>
-            </ul>
-        </section>
-
-       
+      <section>
+        <h3>Nous contacter</h3>
+        <ul>
+          <li>
+            Nos Conseillers vous répondront du lundi au samedi de 9h30 à 19h00
+          </li>
+          <li>
+            Appelez-nous: <a href="tel:+33184000023">+33 1 84 00 00 23</a>
+          </li>
+          <li>
+            <a href="mailto:contactus@orinoco.com"
+              ><u>envoyez-nous un email</u></a
+            >
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h3>Notre entreprise</h3>
+        <ul>
+          <li>Carriere</li>
+          <li>Mentions légales</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Newsletter</h3>
+        <ul>
+          <li>S'inscrire à notre newsletter</li>
+        </ul>
+      </section>
     </footer>
-</body>
+  </body>
 </html>

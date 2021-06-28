@@ -127,7 +127,8 @@ footer section {
   border-left: none;
   overflow: hidden;
 }
-.thumnbail h2, .thumnbail span {
+.thumnbail h2,
+.thumnbail span {
   padding: 0.5rem 1rem 0.1rem 1rem;
 }
 .thumnbail a {
@@ -170,7 +171,7 @@ footer section {
   border-bottom: 1px solid black;
 }
 .productpage__calltoaction {
-  background: #44DB5E;
+  background: #44db5e;
   width: 100%;
   border: none;
   border-bottom: 1px solid black;
