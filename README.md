@@ -1,7 +1,7 @@
 # Project 5 : Orinoco (Client)
 
-## Link to clone the client project:
+## Command to clone the client project:
 > $ git clone https://github.com/alxsandre/AlexandreForet_5_30042021.git
-## Link to launch SASS: 
-> sass --watch ./sass/main.scss ./public/css/main.css
+## Command to launch SASS: 
+> $ sass --watch ./sass/main.scss ./public/css/main.css
 ## Go to load the server: [Click-here!](https://github.com/OpenClassrooms-Student-Center/JWDP5.git)
