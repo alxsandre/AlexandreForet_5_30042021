@@ -1,7 +1,9 @@
 # Project 5 : Orinoco (Client)
 
 ## Command to clone the client project:
-`git clone https://github.com/alxsandre/AlexandreForet_5_30042021.git`
+```shell
+git clone https://github.com/alxsandre/AlexandreForet_5_30042021.git
+```
 ## Command to launch SASS: 
 ```shell
 sass --watch ./sass/main.scss ./public/css/main.css
